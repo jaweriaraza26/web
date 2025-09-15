@@ -1,1 +1,109 @@
-# web
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .head {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .head h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        .body {
+            text-align: center;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 70%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>Welcome to palindrome checker</h1>
+        </div>
+        <div class="body">
+            <form action="on click" method="post">
+                <div class="button">
+                    <input id="word" type="text" name="word" placeholder="Enter a word" required>
+                    <button onclick ="checkPalindrome()" type="button">Check</button>
+                </div>
+                <div id="result" class="result">
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <script>
+        function checkPalindrome(){
+           const input = document.getElementById("word");
+           const palindrome = input.value;  
+           const result = document.getElementById("result");
+           let reversed = "";
+
+        for(var i = palindrome.length -1 ; i >=0 ; i--){
+            console.log(palindrome[i]);
+            reversed += palindrome[i];
+        }
+        if(palindrome === reversed){
+            result.innerHTML = palindrome + " is a palindrome";
+            color = "green";
+        }
+        else{
+            result.innerHTML = palindrome + " is not a palindrome";
+            color = "red";
+        }
+        result.style.color = color;
+        
+        }
+    </script>
+</body>
+
+</html>
